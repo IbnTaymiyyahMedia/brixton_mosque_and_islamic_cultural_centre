@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'timetable')}">
+
+<body>
+	<nav class="navbar navbar-expand-sm bg-light">
+
+  <div class="container-fluid">
+    <!-- Links -->
+    <div class="col-1">
+    <ul class="navbar-nav">
+      
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link 2</a>
+      </li>
+      
+    </ul>
+    </div>
+    <div class="col-10">
+    <h4 class="navbar-text text-center">[[${monthTitle}]]</h4>
+    </div>
+    <div class="col-1">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link 3</a>
+      </li>
+    </ul>
+    </div>
+  </div >
+
+</nav>
+<div class="container-fluid">
+<form action="#" th:action="@{/timetable}" th:object="${daysOfMonth}" method="post">
+<ul id="list-group" class="list-group list-group-flush">
+<li class="list-group-item">
+<div class="row">
+<div class="col">
+<h5 class="text-center">Day</h5>
+</div>
+<div class="col">
+<h5 class="text-center">
+Fajr
+</h5>
+</div>
+<div class="col">
+<h5 class="text-center">
+Dhuhr
+</h5>
+</div>
+<div class="col">
+<h5 class="text-center">
+Asr
+</h5>
+</div>
+<div class="col">
+<h5 class="text-center">
+Maghrib
+</h5>
+</div>
+<div class="col">
+<h5 class="text-center">
+Isha
+</h5>
+</div>
+</div>
+</li >
+<li th:each="day,stat: *{days}" class="list-group-item">
+<div class="row">
+<div class="col">
+<input style="text-align:center;" th:field="*{days[__${stat.index}__].day}" th:value="*{days[__${stat.index}__].getDay()}" th:name="|days[${stat.index}].day|" readonly></input>
+<input type="hidden" style="text-align:center;" th:field="*{days[__${stat.index}__].month}" th:value="*{days[__${stat.index}__].getMonth()}" th:name="|days[${stat.index}].month|"></input>
+<input type="hidden" style="text-align:center;" th:field="*{days[__${stat.index}__].year}" th:value="*{days[__${stat.index}__].getYear()}" th:name="|days[${stat.index}].year|"></input>
+</div>
+<div class="col">
+<div class="row">
+<div class="col">
+<select class="form-select" th:field="*{days[__${stat.index}__].hourFajr}" th:name="|days[${stat.index}].hourFajr|">
+<option th:each="hour : ${day.hours}"
+         th:value="${hour}"
+         th:selected="*{days[__${stat.index}__].hourFajr} == ${hour} ? true : false"
+         th:text="${hour}">
+</select>
+</div>
+<div class="col">
+<select class="form-select" th:field="*{days[__${stat.index}__].minuteFajr}" th:name="|days[${stat.index}].minuteFajr|">
+<option th:each="minute : ${day.minutes}"
+         th:value="${minute}"
+         th:selected="*{days[__${stat.index}__].minuteFajr} == ${minute} ? true : false"
+         th:text="${minute}">
+         </select>
+</div>
+</div>
+</div>
+<div class="col">
+<div class="row">
+<div class="col">
+<select class="form-select" th:field="*{days[__${stat.index}__].hourDhuhr}" th:name="|days[${stat.index}].hourDhuhr|">
+<option th:each="hour : ${day.hours}"
+         th:value="${hour}"
+         th:selected="*{days[__${stat.index}__].hourDhuhr} == ${hour} ? true : false"
+         th:text="${hour}">
+</select>
+</div>
+<div class="col">
+<select class="form-select" th:field="*{days[__${stat.index}__].minuteDhuhr}" th:name="|days[${stat.index}].minuteDhuhr|">
+<option th:each="minute : ${day.minutes}"
+         th:value="${minute}"
+         th:selected="*{days[__${stat.index}__].minuteDhuhr} == ${minute} ? true : false"
+         th:text="${minute}">
+         </select>
+</div>
+</div>
+</div>
+<div class="col">
+<div class="row">
+<div class="col">
+<select class="form-select" th:field="*{days[__${stat.index}__].hourAsr}" th:name="|days[${stat.index}].hourAsr|">
+<option th:each="hour : ${day.hours}"
+         th:value="${hour}"
+         th:selected="*{days[__${stat.index}__].hourAsr} == ${hour} ? true : false"
+         th:text="${hour}">
+</select>
+</div>
+<div class="col">
+<select class="form-select" th:field="*{days[__${stat.index}__].minuteAsr}" th:name="|days[${stat.index}].minuteAsr|">
+<option th:each="minute : ${day.minutes}"
+         th:value="${minute}"
+         th:selected="*{days[__${stat.index}__].minuteAsr} == ${minute} ? true : false"
+         th:text="${minute}">
+         </select>
+</div>
+</div>
+</div>
+<div class="col">
+<div class="row">
+<div class="col">
+<select class="form-select" th:field="*{days[__${stat.index}__].hourMaghrib}" th:name="|days[${stat.index}].hourMaghrib|">
+<option th:each="hour : ${day.hours}"
+         th:value="${hour}"
+         th:selected="*{days[__${stat.index}__].hourMaghrib} == ${hour} ? true : false"
+         th:text="${hour}">
+</select>
+</div>
+<div class="col">
+<select class="form-select" th:field="*{days[__${stat.index}__].minuteMaghrib}" th:name="|days[${stat.index}].minuteMaghrib|">
+<option th:each="minute : ${day.minutes}"
+         th:value="${minute}"
+         th:selected="*{days[__${stat.index}__].minuteMaghrib} == ${minute} ? true : false"
+         th:text="${minute}">
+         </select>
+</div>
+</div>
+</div>
+<div class="col">
+<div class="row">
+<div class="col">
+<select class="form-select" th:field="*{days[__${stat.index}__].hourIsha}" th:name="|days[${stat.index}].hourIsha|">
+<option th:each="hour : ${day.hours}"
+         th:value="${hour}"
+         th:selected="*{days[__${stat.index}__].hourIsha} == ${hour} ? true : false"
+         th:text="${hour}">
+</select>
+</div>
+<div class="col">
+<select class="form-select" th:field="*{days[__${stat.index}__].minuteIsha}" th:name="|days[${stat.index}].minuteIsha|">
+<option th:each="minute : ${day.minutes}"
+         th:value="${minute}"
+         th:selected="*{days[__${stat.index}__].minuteIsha} == ${minute} ? true : false"
+         th:text="${minute}">
+         </select>
+</div>
+</div>
+</div>
+</div>
+</li >
+</ul>
+<button class="btn btn-primary btn-block" type="submit">Confirm</button>
+</form>
+</div>
+
+</body>
+</html>
