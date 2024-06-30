@@ -6,6 +6,6 @@ RUN ./gradlew bootJar --no-daemon
 
 FROM openjdk:17-jdk-slim
 EXPOSE 8080
-COPY --from=build /build/libs/brixton_mosque_and_islamic_cultural_centre-1.jar app.jar
+COPY --from=build /build/libs/brixton_mosque_and_islamic_cultural_centre-0.0.1-SNAPSHOT.jar app.jar
 
 ENTRYPOINT ["java", ".jar", "app.jar"]
