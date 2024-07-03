@@ -10,7 +10,7 @@
     <ul class="navbar-nav">
       
       <li class="nav-item">
-        <a class="nav-link" href="#">Link 2</a>
+        <a class="nav-link"  th:href="@{|/previousTimetable?month=${monthValue}&year=${yearValue}|}">PREV</a>
       </li>
       
     </ul>
@@ -21,7 +21,7 @@
     <div class="col-1">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="#">Link 3</a>
+        <a class="nav-link" th:href="@{|/nextTimetable?month=${monthValue}&year=${yearValue}|}">NEXT</a>
       </li>
     </ul>
     </div>
@@ -71,20 +71,20 @@ Isha
 <input type="hidden" style="text-align:center;" th:field="*{days[__${stat.index}__].year}" th:value="*{days[__${stat.index}__].getYear()}" th:name="|days[${stat.index}].year|"></input>
 </div>
 <div class="col">
-<div class="row">
+	<div class="row">
 <div class="col">
 	<div class="input-group">
-		<select class="form-select" th:field="*{days[__${stat.index}__].hourFajr}" th:name="|days[${stat.index}].hourFajr|">
+		<select class="form-select form-select-sm bg-light text-success" th:field="*{days[__${stat.index}__].hourFajr}" th:name="|days[${stat.index}].hourFajr|">
 			<option th:each="hour : ${day.hours}"
          th:value="${hour}"
          th:selected="*{days[__${stat.index}__].hourFajr} == ${hour} ? true : false"
-         th:text="${hour}">
+         th:text="${#numbers.formatInteger(hour, 2)}">
          </select>
-         <select class="form-select" th:field="*{days[__${stat.index}__].minuteFajr}" th:name="|days[${stat.index}].minuteFajr|">
+         <select class="form-select form-select-sm bg-light text-success" th:field="*{days[__${stat.index}__].minuteFajr}" th:name="|days[${stat.index}].minuteFajr|">
 			 <option th:each="minute : ${day.minutes}"
          th:value="${minute}"
          th:selected="*{days[__${stat.index}__].minuteFajr} == ${minute} ? true : false"
-         th:text="${minute}">
+         th:text="${#numbers.formatInteger(minute, 2)}">
          </select>
          </div>
          </div>
@@ -94,17 +94,17 @@ Isha
 <div class="row">
 <div class="col">
 	<div class="input-group">
-		<select class="form-select" th:field="*{days[__${stat.index}__].hourDhuhr}" th:name="|days[${stat.index}].hourDhuhr|">
+		<select class="form-select form-select-sm bg-light text-success" th:field="*{days[__${stat.index}__].hourDhuhr}" th:name="|days[${stat.index}].hourDhuhr|">
 			<option th:each="hour : ${day.hours}"
          th:value="${hour}"
          th:selected="*{days[__${stat.index}__].hourDhuhr} == ${hour} ? true : false"
-         th:text="${hour}">
+         th:text="${#numbers.formatInteger(hour, 2)}">
          </select>
-         <select class="form-select" th:field="*{days[__${stat.index}__].minuteDhuhr}" th:name="|days[${stat.index}].minuteDhuhr|">
+         <select class="form-select form-select-sm bg-light text-success" th:field="*{days[__${stat.index}__].minuteDhuhr}" th:name="|days[${stat.index}].minuteDhuhr|">
 <option th:each="minute : ${day.minutes}"
          th:value="${minute}"
          th:selected="*{days[__${stat.index}__].minuteDhuhr} == ${minute} ? true : false"
-         th:text="${minute}">
+         th:text="${#numbers.formatInteger(minute, 2)}">
          </select>
 	</div>
 </div>
@@ -115,17 +115,17 @@ Isha
 <div class="row">
 <div class="col">
 	<div class="input-group">
-<select class="form-select" th:field="*{days[__${stat.index}__].hourAsr}" th:name="|days[${stat.index}].hourAsr|">
+<select class="form-select form-select-sm bg-light text-success" th:field="*{days[__${stat.index}__].hourAsr}" th:name="|days[${stat.index}].hourAsr|">
 <option th:each="hour : ${day.hours}"
          th:value="${hour}"
          th:selected="*{days[__${stat.index}__].hourAsr} == ${hour} ? true : false"
-         th:text="${hour}">
+         th:text="${#numbers.formatInteger(hour, 2)}">
 </select>
-<select class="form-select" th:field="*{days[__${stat.index}__].minuteAsr}" th:name="|days[${stat.index}].minuteAsr|">
+<select class="form-select form-select-sm bg-light text-success" th:field="*{days[__${stat.index}__].minuteAsr}" th:name="|days[${stat.index}].minuteAsr|">
 <option th:each="minute : ${day.minutes}"
          th:value="${minute}"
          th:selected="*{days[__${stat.index}__].minuteAsr} == ${minute} ? true : false"
-         th:text="${minute}">
+         th:text="${#numbers.formatInteger(minute, 2)}">
          </select>
          </div>
 </div>
@@ -135,17 +135,17 @@ Isha
 <div class="row">
 <div class="col">
 	<div class="input-group">
-<select class="form-select" th:field="*{days[__${stat.index}__].hourMaghrib}" th:name="|days[${stat.index}].hourMaghrib|">
+<select class="form-select form-select-sm bg-light text-success" th:field="*{days[__${stat.index}__].hourMaghrib}" th:name="|days[${stat.index}].hourMaghrib|">
 <option th:each="hour : ${day.hours}"
          th:value="${hour}"
          th:selected="*{days[__${stat.index}__].hourMaghrib} == ${hour} ? true : false"
-         th:text="${hour}">
+         th:text="${#numbers.formatInteger(hour, 2)}">
 </select>
-<select class="form-select" th:field="*{days[__${stat.index}__].minuteMaghrib}" th:name="|days[${stat.index}].minuteMaghrib|">
+<select class="form-select form-select-sm bg-light text-success" th:field="*{days[__${stat.index}__].minuteMaghrib}" th:name="|days[${stat.index}].minuteMaghrib|">
 <option th:each="minute : ${day.minutes}"
          th:value="${minute}"
          th:selected="*{days[__${stat.index}__].minuteMaghrib} == ${minute} ? true : false"
-         th:text="${minute}">
+         th:text="${#numbers.formatInteger(minute, 2)}">
          </select>
 	</div>
 </div>
@@ -155,17 +155,17 @@ Isha
 <div class="row">
 <div class="col">
 	<div class="input-group">
-<select class="form-select" th:field="*{days[__${stat.index}__].hourIsha}" th:name="|days[${stat.index}].hourIsha|">
+<select class="form-select form-select-sm bg-light text-success" th:field="*{days[__${stat.index}__].hourIsha}" th:name="|days[${stat.index}].hourIsha|">
 <option th:each="hour : ${day.hours}"
          th:value="${hour}"
          th:selected="*{days[__${stat.index}__].hourIsha} == ${hour} ? true : false"
-         th:text="${hour}">
+         th:text="${#numbers.formatInteger(hour, 2)}">
 </select>
-<select class="form-select" th:field="*{days[__${stat.index}__].minuteIsha}" th:name="|days[${stat.index}].minuteIsha|">
+<select class="form-select form-select-sm bg-light text-success" th:field="*{days[__${stat.index}__].minuteIsha}" th:name="|days[${stat.index}].minuteIsha|">
 <option th:each="minute : ${day.minutes}"
          th:value="${minute}"
          th:selected="*{days[__${stat.index}__].minuteIsha} == ${minute} ? true : false"
-         th:text="${minute}">
+         th:text="${#numbers.formatInteger(minute, 2)}">
          </select>
 	</div>
 </div>
