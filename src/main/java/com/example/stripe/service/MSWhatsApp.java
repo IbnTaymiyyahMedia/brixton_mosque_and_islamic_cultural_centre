@@ -15,7 +15,7 @@ public interface MSWhatsApp {
 	public static final String VERSION = "v19.0";
 	public static final String CONTENT_TYPE = "Content-Type";
 	public static final String AUTHORIZATION = "Authorization";
-	public static final String ACCESS_TOKEN = "EAAfZCa59vZCnEBO1AUfDLksSQg7gK6Jct4bvRrZCxYVwrYvuBzw0bUEvCaHDcQAhko4USyXDBLXJKzZA1KIrSqZASVSN1xpZBJUbWLMnKkhEScwkANl1qvE91UvafCwib1fxI9VP1nsDK1uhCdIICKQaN70sVqsJT2qeBH70e3PHICDHeneuPU06VAJZC4dNSJ9NB9FMN7GQNaCBfOBPqMm";
+	public static final String ACCESS_TOKEN = "EAATsTW4u85oBO7oY89GWqrJgPZAAN2s583vD76qKlIQIYa9SmjeCOnhCunTKCUIjzUBdtmuF2HZBBKL709o9T4IlqPdqdm1Y8uco4tSIIHNeMl1lgsLHhM5k2LfmAzRD3XbKdDDBfZCZBmVG5LQT7KNjE1kZAbFAwCrRvOOPeBnedTAZBfWHFKjAyAk1QaDL7DYvWTrbKMIOep0iSFZAywZD";
 	public static final String PHONE_NUMBER_ID = "180596011813447";
 	public static final String WABA_ID = "180763898463089";
 	public static final String TEST_NUMBER = "447593340707";
