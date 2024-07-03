@@ -63,7 +63,7 @@ public class MSWhatsAppService implements MSWhatsApp{
 	}
 	
 	
-	public String getBusinessProfileId() {
+	public String getProfileId() {
 		return getBusinessProfileId();
 	}
 	

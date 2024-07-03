@@ -69,7 +69,7 @@ public class MSWhatsAppController {
 	
 	@GetMapping("/whatsapp/profile.json")
 	String getProfile() {
-		return service.getBusinessProfileId();
+		return service.getProfileId();
 	}
 	
 	@GetMapping(value = "/whatsapp/download/{mediaURL}", produces = MediaType.IMAGE_JPEG_VALUE, headers = "Accept=image/jpeg, image/jpg, image/png, image/gif")
