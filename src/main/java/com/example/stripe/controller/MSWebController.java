@@ -7,7 +7,6 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.json.BasicJsonParser;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -34,16 +33,24 @@ public class MSWebController {
 	String getPreviousMonthTimetable(@RequestParam(name = "month", required = false) Integer month,
 			@RequestParam(name = "year", required = false) Integer year, @ModelAttribute DaysOfMonthDTO daysOfMonth,
 			BindingResult errors, final ModelMap model) {
+		if(year!=null && month!=null) {
 		LocalDate previousMonth = LocalDate.of(year, month, 1).minusMonths(1l);
 		return timetable(daysOfMonth, previousMonth, errors, model);
+		} else {
+			return timetable(daysOfMonth, LocalDate.now(), errors, model);
+		}
 	}
 
 	@GetMapping("/nextTimetable")
 	String getNextMonthTimetable(@RequestParam(name = "month", required = false) Integer month,
 			@RequestParam(name = "year", required = false) Integer year, @ModelAttribute DaysOfMonthDTO daysOfMonth,
 			BindingResult errors, final ModelMap model) {
+		if (year!=null && month!=null) {
 		LocalDate nextMonth = LocalDate.of(year, month, 1).plusMonths(1l);
 		return timetable(daysOfMonth, nextMonth, errors, model);
+		} else {
+			return timetable(daysOfMonth, LocalDate.now(), errors, model);
+		}
 	}
 
 	@GetMapping("/timetable")
@@ -111,6 +118,9 @@ public class MSWebController {
 
 				model.addAttribute("daysOfMonth", days);
 			}
+			model.addAttribute("monthTitle", now.getMonth());
+			model.addAttribute("monthValue", now.getMonthValue());
+			model.addAttribute("yearValue", now.getYear());
 			
 		} else {
 			// String parentEventSeries = retrieveAnEventSeries(FAJR_SERIES_PARENT_ID,
@@ -166,11 +176,14 @@ public class MSWebController {
 				}
 				System.out.println("commit to db");
 			}
+			DayOfMonth dayOfMonth = persistDays.get(0);
+			LocalDate aDate = LocalDate.of(dayOfMonth.getYear(), dayOfMonth.getMonth(), dayOfMonth.getDay());
+			model.addAttribute("monthTitle", aDate.getMonth());
+			model.addAttribute("monthValue", aDate.getMonthValue());
+			model.addAttribute("yearValue", aDate.getYear());
 			model.addAttribute("daysOfMonth", daysOfMonth);
 		}
-		model.addAttribute("monthTitle", now.getMonth());
-		model.addAttribute("monthValue", now.getMonthValue());
-		model.addAttribute("yearValue", now.getYear());
+		
 		// logic to build student data
 
 		return "timetable";
