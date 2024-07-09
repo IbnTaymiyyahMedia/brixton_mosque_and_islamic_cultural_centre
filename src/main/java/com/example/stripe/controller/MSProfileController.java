@@ -30,7 +30,7 @@ import com.example.stripe.service.MSWhatsApp;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Controller
-public class MSProfileController implements MSWhatsApp {
+public class MSProfileController {
 
 	@Autowired
 	private MSProfileService service;
@@ -43,19 +43,14 @@ public class MSProfileController implements MSWhatsApp {
 		int length = multipartFile.getBytes().length;
 		try {
 			ObjectMapper mapper = new ObjectMapper();
-			String sessionJson = createUploadSession(fileName, fileType, length);
-			Map<String, String> sessionObj = mapper.readValue(sessionJson, Map.class);
+			Map<String, String> sessionObj = service.createUploadSession(fileName, fileType, length);
+			
 			String uploadId = sessionObj.get("id");
-			String fileDataJson = uploadFileData( multipartFile.getInputStream(),  uploadId, fileType);
-			 Map<String, String> fileDataObj = mapper.readValue(fileDataJson, Map.class);
+			Map<String, String> fileDataObj = service.uploadFileData( multipartFile.getInputStream(),  uploadId, fileType);
+			 
 			 String fileHandle = fileDataObj.get("h");
-			BUSINESS_PROFILE.put(KEY.email, profileImage.getEmail());
-		BUSINESS_PROFILE.put(KEY.address, profileImage.getAddress());
-		BUSINESS_PROFILE.put(KEY.vertical, profileImage.getVertical());
-		BUSINESS_PROFILE.put(KEY.about, profileImage.getAbout());
-		BUSINESS_PROFILE.put(KEY.description, profileImage.getDescription());
-		BUSINESS_PROFILE.put(KEY.profile_picture_handle, fileHandle);
-		String updatedProfileJson = updateBusinessProfile(BUSINESS_PROFILE);
+			
+		String updatedProfileJson = service.updateBusinessProfile(profileImage, fileHandle);
 		
         
 

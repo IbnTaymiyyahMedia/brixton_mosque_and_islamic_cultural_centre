@@ -31,29 +31,29 @@ public class MSWhatsAppController {
 	
 	@PostMapping("/whatsapp/text")
 	String text(@RequestBody MSText text) {
-  		String textResponse = service.sendTextMessage("447593340709", text.getBody());
+  		String textResponse = service.text("447593340709", text.getBody());
   		System.out.println(textResponse);
   		return textResponse;
 	}
 	
 	@PostMapping("/whatsapp/previewURL")
 	String previewURL(@RequestBody MSText previewURL) {
-		return service.sendTextMessageWithPreviewURL("447593340709", previewURL.getBody());
+		return service.previewURL("447593340709", previewURL.getBody());
 	}
 	
 	@PostMapping("/whatsapp/imageURL")
 	String imageURL(@RequestBody MSText imageURL) {
-		return service.sendImageMessageByURL("447593340709", imageURL.getBody());
+		return service.imageURL("447593340709", imageURL.getBody());
 	}
 	
 	@PostMapping("/whatsapp/audioURL")
 	String audioURL(@RequestBody MSText audioURL) {
-		return service.sendAudioMessageByURL("447593340709", audioURL.getBody());
+		return service.audioURL("447593340709", audioURL.getBody());
 	}
 	
 	@PostMapping("/whatsapp/documentURL")
 	String sendDocumentMessageByURL(@RequestBody MSText documentURL) {
-		return service.sendDocumentMessageByURL("447593340709", documentURL.getBody(), "See attachment");
+		return service.sendDocumentMessageByURL("447593340709", documentURL.getBody());
 	}
 	
 	@PostMapping("/whatsapp/profile")
