@@ -99,7 +99,7 @@ private final RestClient restClient;
 		BUSINESS_PROFILE.put(KEY.about, profileImage.getAbout());
 		BUSINESS_PROFILE.put(KEY.description, profileImage.getDescription());
 		BUSINESS_PROFILE.put(KEY.profile_picture_handle, fileHandle);
-		return updateBusinessProfile(BUSINESS_PROFILE);
+		return updateBiznessProfile(BUSINESS_PROFILE);
 	}
 
 	@Override
