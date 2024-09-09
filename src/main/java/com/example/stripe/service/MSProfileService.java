@@ -73,7 +73,7 @@ private final RestClient restClient;
 
 	public String updateBiznessProfile(MESSAGE_MODEL businessProfile) {
 		// TODO Auto-generated method stub
-		return updateBiznessProfile(businessProfile);
+		return updateBusinessProfile(businessProfile,POST_HEADERS, this);
 	}
 
 	public Map<String, String> createUploadSession(String fileName, String fileType, int length) throws JsonMappingException, JsonProcessingException {
