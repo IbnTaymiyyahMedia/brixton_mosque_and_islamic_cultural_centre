@@ -153,11 +153,11 @@ public interface MSWhatsApp {
 	public static final MESSAGE_MODEL BUSINESS_PROFILE = new MESSAGE_MODEL() {
 		{
 			put(KEY.messaging_product, "whatsapp");
-			put(KEY.address, "<business-address>");
-			put(KEY.description, "<business-description>");
-			put(KEY.vertical, "<business-industry>");
-			put(KEY.about, "<profile-about-text>");
-			put(KEY.email, "<business-email>");
+			put(KEY.address, "1 Gresham Road, Brixton, London, SW9 7PH");
+			put(KEY.description, "The Brixton Mosque and Islamic Cultural Centre is a mosque located in Gresham Road in the Brixton area of South London.");
+			put(KEY.vertical, "NONPROFIT");
+			put(KEY.about, "Managed by Black British converts and is known for its history of controversy.");
+			put(KEY.email, "info@brixtonmasjid.co.uk");
 			put(KEY.websites, WEBSITES);
 			put(KEY.profile_picture_handle,
 					"4:VGVzdC5wbmc=:aW1hZ2UvanBlZw==:ARat4Mt-L09JON3f30SmDkdyPSuyBkDDYiB4TFXuXISjdgHoNp2b7j882_9Jzr2tPrdKxi92UygyVzTivJiOvmebMpZ6MIjTik3gTyI3ZCQAgQ:e:1659995302:2022308451254161:636685196:ARZf1ftR5N6-qSLtklU");

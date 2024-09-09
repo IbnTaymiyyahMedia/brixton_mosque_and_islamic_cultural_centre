@@ -71,9 +71,9 @@ private final RestClient restClient;
 		return repository.save(profileImage);
 	}
 
-	public String updateBusinessProfile(MESSAGE_MODEL businessProfile) {
+	public String updateBiznessProfile(MESSAGE_MODEL businessProfile) {
 		// TODO Auto-generated method stub
-		return updateBusinessProfile(businessProfile);
+		return updateBiznessProfile(businessProfile);
 	}
 
 	public Map<String, String> createUploadSession(String fileName, String fileType, int length) throws JsonMappingException, JsonProcessingException {
@@ -92,7 +92,7 @@ private final RestClient restClient;
 		return fileDataObj;
 	}
 
-	public String updateBusinessProfile(MSBusinessProfile profileImage, String fileHandle) {
+	public String updateBiznessProfile(MSBusinessProfile profileImage, String fileHandle) {
 		BUSINESS_PROFILE.put(KEY.email, profileImage.getEmail());
 		BUSINESS_PROFILE.put(KEY.address, profileImage.getAddress());
 		BUSINESS_PROFILE.put(KEY.vertical, profileImage.getVertical());

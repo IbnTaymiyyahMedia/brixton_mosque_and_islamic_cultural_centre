@@ -1,11 +1,6 @@
 package com.example.stripe.controller;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 import java.util.List;
 import java.util.Map;
 
@@ -24,9 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.stripe.model.MSBusinessProfile;
-import com.example.stripe.service.MESSAGE_MODEL.KEY;
 import com.example.stripe.service.MSProfileService;
-import com.example.stripe.service.MSWhatsApp;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Controller
@@ -50,11 +43,7 @@ public class MSProfileController {
 			 
 			 String fileHandle = fileDataObj.get("h");
 			
-		String updatedProfileJson = service.updateBusinessProfile(profileImage, fileHandle);
-		
-        
-
-        
+		String updatedProfileJson = service.updateBiznessProfile(profileImage, fileHandle);
 
             // convert JSON string to Map
             Map<String, String> updatedProfileObj = mapper.readValue(updatedProfileJson, Map.class);
