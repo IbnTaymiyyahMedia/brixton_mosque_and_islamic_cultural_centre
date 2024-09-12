@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -136,7 +137,7 @@ public class StripeController {
 		return myProduct;
 	}
 
-	@GetMapping("/products.json")
+	@GetMapping(path = "/products.json", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public Iterable<MSProduct> products() {
 		return repository.findAll();
 	}
