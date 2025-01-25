@@ -15,7 +15,7 @@ import com.stripe.Stripe;
 public class StripeApplication {
 
 	public static void main(String[] args) {
-		Stripe.apiKey = "sk_test_51Mi59kGEha7mIN5IHiDeq8UwO5U0ChkveYGz3eozDm2wdelgk0GoU7X4Lg4kQzIucHr1L8swaB53wNlt1pEepbaz0076nS8g95";
+		Stripe.apiKey = "sk_live_1P13hlLHaTUKwgqrTcnau8mp";
 		SpringApplication.run(StripeApplication.class, args);
 	}
 	
